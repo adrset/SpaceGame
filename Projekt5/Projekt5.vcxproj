@@ -23,7 +23,9 @@
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="IO.h" />
     <ClInclude Include="mouse.h" />
+    <ClInclude Include="OBJLoader.h" />
     <ClInclude Include="picoPng.h" />
+    <ClInclude Include="rawModel.h" />
     <ClInclude Include="shaderProgram.h" />
     <ClInclude Include="staticShader.h" />
     <ClInclude Include="texture.h" />
@@ -36,7 +38,9 @@
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="IO.cpp" />
     <ClCompile Include="mouse.cpp" />
+    <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="picoPng.cpp" />
+    <ClCompile Include="rawModel.cpp" />
     <ClCompile Include="shaderProgram.cpp" />
     <ClCompile Include="staticShader.cpp" />
     <ClCompile Include="texture.cpp" />

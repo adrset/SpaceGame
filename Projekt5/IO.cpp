@@ -1,4 +1,5 @@
 #include "IO.h"
+#include <string>
 #include <fstream>
 
 namespace engineX {
@@ -24,6 +25,17 @@ namespace engineX {
 		file.close();
 		return true;
 
+	}
+	bool IO::readFileToVector(std::string filePath, std::vector<std::string>& buffer) {
+		std::ifstream file(filePath, std::ios::binary);
+		if (file.fail()) {
+			perror(filePath.c_str());
+			return false;
+		}
+		std::string line;
+		while (std::getline(file, line)) {
+			buffer.push_back(line);
+		}
 	}
 
 }

@@ -6,6 +6,7 @@ namespace engineX {
 	{
 	public:
 		static bool readFileToBuffer(std::string filePath, std::vector<unsigned char>& buffer);
+		static bool readFileToVector(std::string filePath, std::vector<std::string>& buffer);
 	};
 
 }
