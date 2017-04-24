@@ -12,7 +12,7 @@ namespace engineX {
 		OBJLoader();
 		~OBJLoader();
 	private:
-		static void processVertex(double vertices[], std::vector<int> indices, std::vector<glm::vec2> textures, std::vector<glm::vec3> normals, float* textureArray, float* normalsArray);
+		static void processVertex(int (vertices)[], std::vector<int> &indices, std::vector<glm::vec2> &textures, std::vector<glm::vec3> &normals, float* (&textureArray), float* (&normalsArray));
 
 	};
 }
