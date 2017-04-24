@@ -19,18 +19,27 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="GLTexture.h" />
+    <ClInclude Include="IO.h" />
     <ClInclude Include="mouse.h" />
+    <ClInclude Include="picoPng.h" />
     <ClInclude Include="shaderProgram.h" />
     <ClInclude Include="staticShader.h" />
+    <ClInclude Include="texture.h" />
     <ClInclude Include="window.h" />
     <ClInclude Include="errors.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="MasterRenderer.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="IO.cpp" />
     <ClCompile Include="mouse.cpp" />
+    <ClCompile Include="picoPng.cpp" />
     <ClCompile Include="shaderProgram.cpp" />
     <ClCompile Include="staticShader.cpp" />
+    <ClCompile Include="texture.cpp" />
     <ClCompile Include="window.cpp" />
     <ClCompile Include="errors.cpp" />
     <ClCompile Include="game.cpp" />
