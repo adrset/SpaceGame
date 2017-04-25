@@ -1,5 +1,6 @@
 #pragma once
 #include <vector>
+
 #include "rawModel.h"
 namespace engineX {
 	class loader
@@ -18,7 +19,7 @@ namespace engineX {
 	private:
 		std::vector<int> vaos;
 		std::vector<int> vbos;
-		std::vector<int> texture;
+		std::vector<int> textures;
 		int createVAO();
 		void storeDataInAttribList(int attribNumber, int size, float data[]);
 		void unbindVAO();
