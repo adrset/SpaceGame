@@ -1,5 +1,4 @@
 #include "loader.h"
-#include "texture.h"
 
 namespace engineX {
 	loader::loader()
@@ -49,80 +48,78 @@ namespace engineX {
 
 	}
 
-	int loader::loadCubeMap(std::string textures[]) {
-	/*	int texID = glGenTextures();
+	int loader::loadCubeMap(std::string textureStrings[]) {
+		GLuint texID;
+		glGenTextures(1, &texID);
+
 		glActiveTexture(GL_TEXTURE0);
+
 		glBindTexture(GL_TEXTURE_CUBE_MAP, texID);
-		for (int i = 0; i<sizeof(textures)/sizeof(std::string); i++) {
-			TextureInByteBuffer data = decodeTextureFile(textures[i]);
+		GLTexture* txt = new GLTexture();
+
+		for (int i = 0; i<sizeof(textureStrings)/sizeof(std::string); i++) {
+			std::vector<unsigned char> data = decodeTextureFile(textureStrings[i], txt);
 			//Param 1 -> 1 of 6 
-			GL11.glTexImage2D(GL13.GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL11.GL_RGBA, data.getWidth(), data.getHeight(), 0, GL11.GL_RGBA, GL11.GL_UNSIGNED_BYTE, data.getBuffer());
+			glTexImage2D(GL_TEXTURE_CUBE_MAP_POSITIVE_X + i, 0, GL_RGBA, txt->width, txt->height, 0, GL_RGBA, GL_UNSIGNED_BYTE, &(data[0]));
 		}
 		//To make it smooth
-		GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_MAG_FILTER, GL11.GL_LINEAR);
-		GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_MIN_FILTER, GL11.GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
 
 		//say no to lines on the edges!
-		GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_WRAP_S, GL12.GL_CLAMP_TO_EDGE);
-		GL11.glTexParameteri(GL13.GL_TEXTURE_CUBE_MAP, GL11.GL_TEXTURE_WRAP_T, GL12.GL_CLAMP_TO_EDGE);
-		this.textures.add(texID);
-		return texID;*/
+		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+		glTexParameteri(GL_TEXTURE_CUBE_MAP, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
+		textures.push_back(texID);
 		return 1;
 	}
 
 	//duplicate, in future the method from texture class will be used
-	/*TextureInByteBuffer loader::decodeTextureFile(String fileName) {
-		int width = 0;
-		int height = 0;
-		ByteBuffer buffer = null;
-		try {
-			InputStream in = Class.class.getResourceAsStream("/res/textures/" + fileName + ".png");
-			PNGDecoder decoder = new PNGDecoder(in);
-			width = decoder.getWidth();
-			height = decoder.getHeight();
-			buffer = ByteBuffer.allocateDirect(4 * width * height);
-			decoder.decode(buffer, width * 4, Format.RGBA);
-			buffer.flip();
-			in.close();
+	std::vector<unsigned char>& loader::decodeTextureFile(std::string fileName, GLTexture* txt) {
+		
+
+		std::vector<unsigned char> bufferIn;
+		std::vector<unsigned char> bufferOut;
+	
+		IO::readFileToBuffer(fileName, bufferIn);
+		int errorCode = decodePNG(bufferOut,txt->width, txt->height, &bufferIn[0], bufferIn.size());
+		if (errorCode != 0) {
+			fatalError("decodePNG failed with error: " + std::to_string(errorCode));
 		}
-		catch (Exception e) {
-			e.printStackTrace();
-			System.err.println("Tried to load texture " + fileName + ", didn't work");
-			System.exit(-1);
-		}
-		return new TextureInByteBuffer(buffer, width, height);
-	}*/
+
+		return bufferOut;
+	}
 
 	int loader::createVAO() {
-		/*int vaoID = glGenVertexArrays();
+		GLuint vaoID;
+		glGenVertexArrays(1, &vaoID);
 		vaos.push_back(vaoID);
 		glBindVertexArray(vaoID);
-		return vaoID;*/
-		return 0;
+		return vaoID;
 	}
 
 	void loader::cleanUp() {
 
-		/*for (int vao : vaos) {
-			glDeleteVertexArrays(sizeof(vaos),vaos);
+		for (GLuint vao : vaos) {
+			glDeleteVertexArrays(1,&vao);
 		}
 
-		for (int vbo : vbos) {
-			glDeleteBuffers(vbo);
+		for (GLuint vbo : vbos) {
+			glDeleteBuffers(1, &vbo);
 		}
-		for (int texture : textures) {
-			glDeleteTextures(texture);
-		}*/
+		for (GLuint texture : textures) {
+			glDeleteTextures(1, &texture);
+		}
 	}
 
 	void loader::storeDataInAttribList(int attribNumber, int size, float data[]) {
-	/*	int vboID = glGenBuffers();
-		vbos.add(vboID);
-		GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, vboID);
-		FloatBuffer buffer = storeDataInFB(data);
-		GL15.glBufferData(GL15.GL_ARRAY_BUFFER, buffer, GL15.GL_STATIC_DRAW); // static means I will not edit the data when it is stored in buffer
-		GL20.glVertexAttribPointer(attribNumber, size, GL11.GL_FLOAT, false, 0, 0);
-		GL15.glBindBuffer(GL15.GL_ARRAY_BUFFER, 0); // Unbind the vbo*/
+		GLuint vboID;
+		glGenBuffers(1, &vboID);
+		vbos.push_back(vboID);
+		glBindBuffer(GL_ARRAY_BUFFER, vboID);
+		std::vector<float> buffer = storeDataInFB(data);
+		glBufferData(GL_ARRAY_BUFFER, buffer.size(), &buffer.front(), GL_STATIC_DRAW); // static means I will not edit the data when it is stored in buffer
+		glVertexAttribPointer(attribNumber, size, GL_FLOAT, false, 0, 0);
+		glBindBuffer(GL_ARRAY_BUFFER, 0); // Unbind the vbo
 	}
 
 	void loader::unbindVAO() {
@@ -131,10 +128,24 @@ namespace engineX {
 	}
 
 	void loader::bindIndicesBuffer(int indices[]) {
-		/*int vboID = glGenBuffers();
+		GLuint vboID;
+		glGenBuffers(1, &vboID);
 		vbos.push_back(vboID);
-		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID);*/
-		/*IntBuffer buffer = storeDataInIntBuffer(indices);
-		GL15.glBufferData(GL15.GL_ELEMENT_ARRAY_BUFFER, buffer, GL15.GL_STATIC_DRAW);*/
+		glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, vboID);
+		std::vector<int> buffer = storeDataInIntBuffer(indices);
+		glBufferData(GL_ELEMENT_ARRAY_BUFFER, buffer.size(), &buffer.front(), GL_STATIC_DRAW);
+
+	}
+
+	std::vector<int>& loader::storeDataInIntBuffer(int data[]) {
+		int size = sizeof(data) / sizeof(int);
+		std::vector<int> buffer(data, data +size);
+		return buffer;
+	}
+
+	std::vector<float>& loader::storeDataInFB(float data[]) {
+		int size = sizeof(data) / sizeof(float);
+		std::vector<float> buffer(data, data + size);
+		return buffer;
 	}
 }

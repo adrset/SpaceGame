@@ -1,7 +1,12 @@
 #pragma once
 #include <vector>
-
+#include "GLTexture.h"
 #include "rawModel.h"
+#include "texture.h"
+#include "IO.h"
+#include "picoPng.h"
+#include "errors.h"
+
 namespace engineX {
 	class loader
 	{
@@ -17,29 +22,18 @@ namespace engineX {
 		/*VA0 [0] -> Positions VBO
 		VAO [1] -> Texture Co-ords VBO*/
 	private:
-		std::vector<int> vaos;
-		std::vector<int> vbos;
-		std::vector<int> textures;
+		std::vector<GLuint> vaos;
+		std::vector<GLuint> vbos;
+		std::vector<GLuint> textures;
 		int createVAO();
 		void storeDataInAttribList(int attribNumber, int size, float data[]);
 		void unbindVAO();
 
 		void bindIndicesBuffer(int indices[]);
-		
+		std::vector<unsigned char>& loader::decodeTextureFile(std::string fileName, GLTexture* txt);
 
-		/*private IntBuffer storeDataInIntBuffer(int[] data) {
-			IntBuffer buffer = BufferUtils.createIntBuffer(data.length);
-			buffer.put(data);
-			buffer.flip();
-			return buffer;
-		}
-
-		private FloatBuffer storeDataInFB(float[] data) {
-			FloatBuffer buffer = BufferUtils.createFloatBuffer(data.length);
-			buffer.put(data);
-			buffer.flip();
-			return buffer;
-		}*/
+		std::vector<int>& storeDataInIntBuffer(int data[]);
+		std::vector<float>& storeDataInFB(float data[]);
 	};
 
 }

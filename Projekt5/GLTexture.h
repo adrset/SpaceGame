@@ -3,7 +3,7 @@
 namespace engineX {
 	struct GLTexture {
 		GLuint id;
-		int width;
-		int height;
+		unsigned long width;
+		unsigned long height;
 	};
 }
