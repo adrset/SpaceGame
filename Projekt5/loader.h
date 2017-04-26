@@ -19,8 +19,6 @@ namespace engineX {
 		int loadTexture(std::string fileName);
 		void cleanUp();
 		int loadCubeMap(std::string textures[]);
-		/*VA0 [0] -> Positions VBO
-		VAO [1] -> Texture Co-ords VBO*/
 	private:
 		std::vector<GLuint> vaos;
 		std::vector<GLuint> vbos;
@@ -28,10 +26,8 @@ namespace engineX {
 		int createVAO();
 		void storeDataInAttribList(int attribNumber, int size, float data[]);
 		void unbindVAO();
-
 		void bindIndicesBuffer(int indices[]);
 		std::vector<unsigned char>& loader::decodeTextureFile(std::string fileName, GLTexture* txt);
-
 		std::vector<int>& storeDataInIntBuffer(int data[]);
 		std::vector<float>& storeDataInFB(float data[]);
 	};

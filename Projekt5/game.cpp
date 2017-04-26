@@ -1,7 +1,7 @@
 #include <iostream>
 #include "staticShader.h"
 #include "game.h"
-#include "OBJLoader.h"
+#include "resourceManager.h"
 namespace engineX {
 
 
@@ -9,7 +9,7 @@ namespace engineX {
 	{
 		run();
 		staticShader *a = new staticShader();
-		rawModel model = OBJLoader::loadObjModel("planet.obj");
+		rawModel model = resourceManager::loadOBJ("planet.obj");
 		loop();
 	}
 
