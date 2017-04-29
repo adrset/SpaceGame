@@ -4,10 +4,21 @@
 
 namespace engineX {
 
-	static void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+	inputManager window::m_input;
+
+	void window::mouse_button_callback(GLFWwindow* window, int button, int action, int mods)
 	{
-		if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
-			glfwSetWindowShouldClose(window, GLFW_TRUE);
+		(action != GLFW_RELEASE) ? m_input.pressMouseKey(button) : m_input.releaseMouseKey(button);
+	}
+
+	void window::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
+	{
+		(action != GLFW_RELEASE) ? m_input.pressKey(key): m_input.releaseKey(key);
+	}
+
+	void window::cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
+	{
+		m_input.setMouseCoords(xpos, ypos);
 	}
 
 	window::~window() {
@@ -34,8 +45,6 @@ namespace engineX {
 			fatalError("Could not create window!");
 		}
 
-		glfwSetKeyCallback(m_window, key_callback);
-
 		glfwMakeContextCurrent(m_window);
 
 		glewExperimental = GL_TRUE;
@@ -47,7 +56,14 @@ namespace engineX {
 		const GLFWvidmode* vidmode = glfwGetVideoMode(glfwGetPrimaryMonitor());
 		glfwSetWindowPos(m_window, (int)(0.5 * (vidmode->width - width)), int((0.5*(vidmode->height - height ))));
 
+		glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
+		glfwSetKeyCallback(m_window, key_callback);
+		glfwSetCursorPosCallback(m_window, cursor_position_callback);
+		//glfwSetScrollCallback(m_window, Mouse.mouseScroll);
+		glfwSetMouseButtonCallback(m_window, mouse_button_callback);
+
 	}
+
 
 	void window::closeWindow() {
 		glfwDestroyWindow(m_window);

@@ -105,6 +105,9 @@
     <ClInclude Include="camera3d.h">
       <Filter>Pliki nagłówkowe\models</Filter>
     </ClInclude>
+    <ClInclude Include="inputManager.h">
+      <Filter>Pliki nagłówkowe</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="errors.cpp">
@@ -174,6 +177,9 @@
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="timer.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="inputManager.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>

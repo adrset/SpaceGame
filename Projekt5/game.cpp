@@ -33,6 +33,8 @@ namespace engineX {
 			 /* Render here */
 			 glfwPollEvents();
 
+			 std::cout<<m_window->m_input.isMouseKeyPressed(GLFW_MOUSE_BUTTON_1);
+			 m_window->m_input.update();
 			 // Render
 			 // Clear the colorbuffer
 			 glClearColor(0.2f, 0.3f, 0.3f, 1.0f);

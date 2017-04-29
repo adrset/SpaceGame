@@ -23,6 +23,7 @@
     <ClInclude Include="camera3d.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="GLTexture.h" />
+    <ClInclude Include="inputManager.h" />
     <ClInclude Include="IO.h" />
     <ClInclude Include="loader.h" />
     <ClInclude Include="modelTexture.h" />
@@ -47,6 +48,7 @@
     <ClCompile Include="camera.cpp" />
     <ClCompile Include="camera3d.cpp" />
     <ClCompile Include="entity.cpp" />
+    <ClCompile Include="inputManager.cpp" />
     <ClCompile Include="IO.cpp" />
     <ClCompile Include="loader.cpp" />
     <ClCompile Include="modelTexture.cpp" />
