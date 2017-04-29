@@ -6,6 +6,7 @@ namespace engineX {
 	{
 	public:
 		~entity();
+		entity() {}
 		entity(const entity& a);
 		void setModel(texturedModel model);
 		entity(texturedModel model, glm::vec3 position, float rotationX, float rotationY, float rotationZ, float scale);

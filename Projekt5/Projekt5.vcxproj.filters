@@ -19,64 +19,91 @@
     <Filter Include="Pliki nagłówkowe\Renderer">
       <UniqueIdentifier>{fb47a1e7-054c-4d3e-b384-af4d8032afbc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Pliki nagłówkowe\Shaders">
+      <UniqueIdentifier>{a4ef1d31-3828-423b-93cc-29af35b12245}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Loaders">
+      <UniqueIdentifier>{6ef5b82c-1d82-497f-9864-8ea8d32a5997}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\models">
+      <UniqueIdentifier>{8c18039d-6119-4b41-9545-8187e6a18502}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Input">
+      <UniqueIdentifier>{3fb4509f-ad18-4454-bda3-68508c83941c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Pliki nagłówkowe\Misc">
+      <UniqueIdentifier>{0d657225-efd6-43d7-bdc8-9f98fc1c2400}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="errors.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="game.h">
       <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
     <ClInclude Include="MasterRenderer.h">
       <Filter>Pliki nagłówkowe\Renderer</Filter>
     </ClInclude>
-    <ClInclude Include="window.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="mouse.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="shaderProgram.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>Pliki nagłówkowe\Shaders</Filter>
     </ClInclude>
     <ClInclude Include="staticShader.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="camera.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="texture.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="GLTexture.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="picoPng.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="IO.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="rawModel.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="OBJLoader.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
-    <ClInclude Include="loader.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>Pliki nagłówkowe\Shaders</Filter>
     </ClInclude>
     <ClInclude Include="resourceManager.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>Pliki nagłówkowe\Loaders</Filter>
     </ClInclude>
-    <ClInclude Include="entity.h">
-      <Filter>Pliki nagłówkowe</Filter>
+    <ClInclude Include="OBJLoader.h">
+      <Filter>Pliki nagłówkowe\Loaders</Filter>
+    </ClInclude>
+    <ClInclude Include="loader.h">
+      <Filter>Pliki nagłówkowe\Loaders</Filter>
     </ClInclude>
     <ClInclude Include="texturedModel.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>Pliki nagłówkowe\models</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Pliki nagłówkowe\models</Filter>
+    </ClInclude>
+    <ClInclude Include="rawModel.h">
+      <Filter>Pliki nagłówkowe\models</Filter>
     </ClInclude>
     <ClInclude Include="modelTexture.h">
-      <Filter>Pliki nagłówkowe</Filter>
+      <Filter>Pliki nagłówkowe\models</Filter>
+    </ClInclude>
+    <ClInclude Include="GLTexture.h">
+      <Filter>Pliki nagłówkowe\models</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Pliki nagłówkowe\models</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Pliki nagłówkowe\models</Filter>
+    </ClInclude>
+    <ClInclude Include="mouse.h">
+      <Filter>Pliki nagłówkowe\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="IO.h">
+      <Filter>Pliki nagłówkowe\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="errors.h">
+      <Filter>Pliki nagłówkowe\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="picoPng.h">
+      <Filter>Pliki nagłówkowe\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="window.h">
+      <Filter>Pliki nagłówkowe\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="utils.h">
+      <Filter>Pliki nagłówkowe\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="timer.h">
+      <Filter>Pliki nagłówkowe\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="player.h">
+      <Filter>Pliki nagłówkowe\models</Filter>
+    </ClInclude>
+    <ClInclude Include="camera3d.h">
+      <Filter>Pliki nagłówkowe\models</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -135,6 +162,18 @@
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="modelTexture.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="camera3d.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="player.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="utils.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
+    <ClCompile Include="timer.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
   </ItemGroup>

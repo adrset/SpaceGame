@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="camera.h" />
+    <ClInclude Include="camera3d.h" />
     <ClInclude Include="entity.h" />
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="IO.h" />
@@ -28,12 +29,15 @@
     <ClInclude Include="mouse.h" />
     <ClInclude Include="OBJLoader.h" />
     <ClInclude Include="picoPng.h" />
+    <ClInclude Include="player.h" />
     <ClInclude Include="rawModel.h" />
     <ClInclude Include="resourceManager.h" />
     <ClInclude Include="shaderProgram.h" />
     <ClInclude Include="staticShader.h" />
     <ClInclude Include="texture.h" />
     <ClInclude Include="texturedModel.h" />
+    <ClInclude Include="timer.h" />
+    <ClInclude Include="utils.h" />
     <ClInclude Include="window.h" />
     <ClInclude Include="errors.h" />
     <ClInclude Include="game.h" />
@@ -41,6 +45,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="camera.cpp" />
+    <ClCompile Include="camera3d.cpp" />
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="IO.cpp" />
     <ClCompile Include="loader.cpp" />
@@ -48,12 +53,15 @@
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="picoPng.cpp" />
+    <ClCompile Include="player.cpp" />
     <ClCompile Include="rawModel.cpp" />
     <ClCompile Include="resourceManager.cpp" />
     <ClCompile Include="shaderProgram.cpp" />
     <ClCompile Include="staticShader.cpp" />
     <ClCompile Include="texture.cpp" />
     <ClCompile Include="texturedModel.cpp" />
+    <ClCompile Include="timer.cpp" />
+    <ClCompile Include="utils.cpp" />
     <ClCompile Include="window.cpp" />
     <ClCompile Include="errors.cpp" />
     <ClCompile Include="game.cpp" />

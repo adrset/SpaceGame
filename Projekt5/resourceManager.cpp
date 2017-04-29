@@ -14,7 +14,7 @@ namespace engineX {
 	std::map<std::string, int> resourceManager::m_textureMap;
 	std::map<std::string, rawModel> resourceManager::m_objectMap;
 
-	rawModel resourceManager::loadOBJ(std::string name) {
+	rawModel& resourceManager::loadOBJ(std::string name) {
 
 		//look for texture
 		auto mit = m_objectMap.find(name);
