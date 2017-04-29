@@ -80,6 +80,10 @@ namespace engineX {
 		}
 	}
 
+	void inputManager::addScroll(glm::vec2 scroll) {
+		this->m_scroll += scroll;
+	}
+
 	bool inputManager::isMouseKeyPressed(unsigned int keyID)
 	{
 		bool isPressed = false;

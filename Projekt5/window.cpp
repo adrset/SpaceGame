@@ -11,6 +11,11 @@ namespace engineX {
 		(action != GLFW_RELEASE) ? m_input.pressMouseKey(button) : m_input.releaseMouseKey(button);
 	}
 
+	void window::scroll_callback(GLFWwindow* window, double xoffset, double yoffset)
+	{
+		m_input.addScroll(glm::vec2(xoffset, yoffset));
+	}
+
 	void window::key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 	{
 		(action != GLFW_RELEASE) ? m_input.pressKey(key): m_input.releaseKey(key);
@@ -18,7 +23,7 @@ namespace engineX {
 
 	void window::cursor_position_callback(GLFWwindow* window, double xpos, double ypos)
 	{
-		m_input.setMouseCoords(xpos, ypos);
+		m_input.setMouseCoords((float)xpos, (float)ypos);
 	}
 
 	window::~window() {
@@ -47,6 +52,7 @@ namespace engineX {
 
 		glfwMakeContextCurrent(m_window);
 
+		//glfwSwapInterval(0);
 		glewExperimental = GL_TRUE;
 
 		if (glewInit() != 0.0) {
@@ -59,7 +65,7 @@ namespace engineX {
 		glfwSetInputMode(m_window, GLFW_CURSOR, GLFW_CURSOR_NORMAL);
 		glfwSetKeyCallback(m_window, key_callback);
 		glfwSetCursorPosCallback(m_window, cursor_position_callback);
-		//glfwSetScrollCallback(m_window, Mouse.mouseScroll);
+		glfwSetScrollCallback(m_window, scroll_callback);
 		glfwSetMouseButtonCallback(m_window, mouse_button_callback);
 
 	}

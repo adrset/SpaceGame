@@ -1,5 +1,5 @@
 #include "staticShader.h"
-
+#include "utils.h"
 namespace engineX {
 
 	staticShader::staticShader() : shaderProgram(VERTEX_FILE, FRAGMENT_FILE)
@@ -64,19 +64,18 @@ namespace engineX {
 		loadFloat(location_shineDamper, damper);
 		loadFloat(location_reflectivity, reflectivity);
 	}
-	void staticShader::loadLights(std::vector/*<Light>*/<std::string> lights) {
+	void staticShader::loadLights(std::vector<light> lights) {
 		for (int i = 0; i<MAX_LIGHTS; i++) {
-
-			/*if (i<lights.size()) {
-				loadVector(location_lightPosition[i], lights.get(i).getPosition());
-				loadVector(location_lightColor[i], lights.get(i).getColor());
-				loadVector(location_attenuation[i], lights.get(i).getAttenuation());
+			if (i<lights.size()) {
+				loadVector(location_lightPosition[i], lights[i].getPosition());
+				loadVector(location_lightColor[i], lights[i].getColor());
+				loadVector(location_attenuation[i], lights[i].getAttenuation());
 			}
 			else {
 				loadVector(location_lightPosition[i],  glm::vec3(0, 0, 0));
 				loadVector(location_lightColor[i],  glm::vec3(0, 0, 0));
 				loadVector(location_attenuation[i],  glm::vec3(1, 0, 0));
-			}*/
+			}
 
 		}
 
@@ -86,9 +85,9 @@ namespace engineX {
 		loadMatrix(location_projectionMatrix, matrix);
 	}
 
-	void staticShader::loadViewMatrix(/*Camera3D camera*/ std::string camera) {
-		/*Matrix4f viewMatrix = Maths.createViewMatrix(camera);
-		super.loadMatrix(location_viewMatrix, viewMatrix);*/
+	void staticShader::loadViewMatrix(camera3d camera) {
+		glm::mat4 viewMatrix = utils::createViewMatrix(camera);
+		loadMatrix(location_viewMatrix, viewMatrix);
 	}
 
 

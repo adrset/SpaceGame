@@ -1,6 +1,9 @@
 #pragma once
-#include "shaderProgram.h"
 #include <vector>
+#include "shaderProgram.h"
+#include "camera3d.h"
+#include "light.h"
+
 namespace engineX {
 	class staticShader : public shaderProgram
 	{
@@ -32,10 +35,10 @@ namespace engineX {
 		void loadSkyColor(float r, float g, float b);
 		void loadFakeLight(bool use);
 		void loadShineVariables(float damper, float reflectivity);
-		void loadLights(std::vector/*<Light>*/<std::string> lights);
+		void loadLights(std::vector<light> lights);
 
 		void loadProjectionMatrix(glm::mat4 matrix);
-		void loadViewMatrix(/*Camera3D*/ std::string camera);
+		void loadViewMatrix(camera3d camera);
 	};
 
 }

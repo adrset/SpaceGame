@@ -25,11 +25,13 @@
     <ClInclude Include="GLTexture.h" />
     <ClInclude Include="inputManager.h" />
     <ClInclude Include="IO.h" />
+    <ClInclude Include="light.h" />
     <ClInclude Include="loader.h" />
     <ClInclude Include="modelTexture.h" />
     <ClInclude Include="mouse.h" />
     <ClInclude Include="OBJLoader.h" />
     <ClInclude Include="picoPng.h" />
+    <ClInclude Include="planet.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="rawModel.h" />
     <ClInclude Include="resourceManager.h" />
@@ -50,11 +52,13 @@
     <ClCompile Include="entity.cpp" />
     <ClCompile Include="inputManager.cpp" />
     <ClCompile Include="IO.cpp" />
+    <ClCompile Include="light.cpp" />
     <ClCompile Include="loader.cpp" />
     <ClCompile Include="modelTexture.cpp" />
     <ClCompile Include="mouse.cpp" />
     <ClCompile Include="OBJLoader.cpp" />
     <ClCompile Include="picoPng.cpp" />
+    <ClCompile Include="planet.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="rawModel.cpp" />
     <ClCompile Include="resourceManager.cpp" />

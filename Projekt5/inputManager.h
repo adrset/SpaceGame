@@ -23,6 +23,7 @@ namespace engineX {
 		bool isKeyDown(unsigned int keyID);
 		bool isKeyPressed(unsigned int keyID);
 
+		void addScroll(glm::vec2 scroll);
 		glm::vec2 getMouseCoords() const { return m_mouseCoords; }
 	private:
 		bool wasKeyDown(unsigned int keyID);
@@ -30,6 +31,9 @@ namespace engineX {
 		std::unordered_map<unsigned int, bool> m_previousMouseKeyMap;
 		std::unordered_map<unsigned int, bool> m_keyMap;
 		std::unordered_map<unsigned int, bool> m_previousKeyMap;
+		
+		glm::vec2 m_scroll;
+
 		glm::vec2 m_mouseCoords;
 	};
 
