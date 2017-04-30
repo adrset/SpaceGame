@@ -9,12 +9,12 @@ namespace engineX {
 	}
 
 	entity::entity(const entity& a) {
-		this->m_position = glm::vec3(a.getPosition());
-		this->m_rotationX = a.getRotationX();
-		this->m_rotationY = a.getRotationY();
-		this->m_rotationZ = a.getRotationZ();
-		this->m_model = a.getModel();
-		this->m_scale = a.getScale();
+		this->m_position = a.m_position;
+		this->m_rotationX = a.m_rotationX;
+		this->m_rotationY = a.m_rotationY;
+		this->m_rotationZ = a.m_rotationZ;
+		this->m_model = a.m_model;
+		this->m_scale = a.m_scale;
 	}
 
 	entity::entity(texturedModel model, glm::vec3 position, float rotationX, float rotationY, float rotationZ, float scale){

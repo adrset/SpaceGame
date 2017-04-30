@@ -65,7 +65,7 @@ namespace engineX {
 		loadFloat(location_reflectivity, reflectivity);
 	}
 	void staticShader::loadLights(std::vector<light> lights) {
-		for (int i = 0; i<MAX_LIGHTS; i++) {
+		for (unsigned int i = 0; i<MAX_LIGHTS; i++) {
 			if (i<lights.size()) {
 				loadVector(location_lightPosition[i], lights[i].getPosition());
 				loadVector(location_lightColor[i], lights[i].getColor());

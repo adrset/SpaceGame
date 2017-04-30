@@ -5,8 +5,10 @@
 namespace engineX {
 
 
-	game::game(int width, int height, std::string title) : width(width), height(height), title(title)
+	game::game(int width, int height, std::string title): title(title)
 	{
+		st_width = width;
+		st_height = height;
 		run();
 		staticShader *a = new staticShader();
 		rawModel model = resourceManager::loadOBJ("planet.obj");
@@ -23,8 +25,11 @@ namespace engineX {
 		m_window->closeWindow();
 	}
 
+	int game::st_width=0;
+	int game::st_height=0;
+
 	void game::run() {
-		m_window = new window(width,height,title);
+		m_window = new window(st_width,st_height,title);
 	}
 
 	 void game::loop() {

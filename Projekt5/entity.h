@@ -5,6 +5,7 @@ namespace engineX {
 	class entity
 	{
 	public:
+		friend class MasterRenderer;
 		~entity();
 		entity() {}
 		entity(const entity& a);
@@ -16,12 +17,12 @@ namespace engineX {
 		void setRotationZ(float rotationZ);
 		void setScale(float scale);
 
-		texturedModel getModel() const { return m_model; }
-		float getRotationZ() const { return m_rotationZ; }
-		float getScale() const { return m_scale; }
-		float getRotationY() const { return m_rotationY; }
-		glm::vec3 getPosition() const { return m_position; }
-		float getRotationX() const { return m_rotationX; }
+		texturedModel getModel() { return this->m_model; }
+		float getRotationZ() { return m_rotationZ; }
+		float getScale() { return m_scale; }
+		float getRotationY() { return m_rotationY; }
+		glm::vec3 getPosition() { return m_position; }
+		float getRotationX() { return m_rotationX; }
 
 		void increasePosition(float dx, float dy, float dz);
 		void increaseRotation(float rx, float ry, float rz);
