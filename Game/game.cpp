@@ -1,8 +1,9 @@
 #include <iostream>
-#include "staticShader.h"
+#include <Projekt5/staticShader.h>
+#include <Projekt5/resourceManager.h>
 #include "game.h"
-#include "resourceManager.h"
-namespace engineX {
+
+using namespace engineX;
 
 
 	game::game(int width, int height, std::string title): title(title)
@@ -51,5 +52,4 @@ namespace engineX {
 		cleanUp();
 
 	}
-}
 

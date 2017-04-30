@@ -1,6 +1,5 @@
 #include "MasterRenderer.h"
 #include "utils.h"
-#include "game.h"
 
 namespace engineX {
 
@@ -12,7 +11,7 @@ namespace engineX {
 	float MasterRenderer::GREEN = 0.2f;
 	float MasterRenderer::BLUE = 0.5f;
 
-	MasterRenderer::MasterRenderer(loader loader/*, sceneLoader sceneLoader*/)
+	MasterRenderer::MasterRenderer(loader loader/*, sceneLoader sceneLoader*/, unsigned int width, unsigned int height) : m_width(width), m_height(height)
 	{
 		createProjectionMatrix();
 		enableCulling();
@@ -22,7 +21,7 @@ namespace engineX {
 	}
 
 	void MasterRenderer::createProjectionMatrix() {
-		float aspectRatio = (float)game::st_width / (float)game::st_height;
+		float aspectRatio = (float)m_width / (float)m_height;
 		float y_scale = (float)((1.0f / tan(utils::toRadians(FOV / 2.0f))) * aspectRatio);
 		float x_scale = y_scale / aspectRatio;
 		float frustum_length = FAR_PLANE - NEAR_PLANE;

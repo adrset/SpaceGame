@@ -1,11 +1,13 @@
 #pragma once
 #include <glm/glm.hpp>
 #include <GL/glew.h>
+#include <GLFW/glfw3.h>
 #include <list>
 #include "loader.h"
 #include "staticShader.h"
 #include "entityRenderer.h"
 #include "camera3d.h"
+
 namespace engineX {
 	
 
@@ -31,11 +33,12 @@ namespace engineX {
 		std::map<texturedModel, std::list<entity>> m_entities;
 		//std::list<terrain> terrains;
 		void createProjectionMatrix();
-
+		unsigned int m_width;
+		unsigned int m_height;
 	public:
 		static void enableCulling();
 		static void disableCulling();
-		MasterRenderer(loader loader/*, sceneLoader sceneLoader*/);
+		MasterRenderer(loader loader/*, sceneLoader sceneLoader*/, unsigned int width, unsigned int height);
 		~MasterRenderer();
 
 		void render(std::vector<light> lights, camera3d camera);
@@ -49,5 +52,4 @@ namespace engineX {
 
 		void cleanUp();
 	};
-
 }

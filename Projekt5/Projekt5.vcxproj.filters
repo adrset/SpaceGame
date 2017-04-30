@@ -36,9 +36,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="game.h">
-      <Filter>Pliki nagłówkowe</Filter>
-    </ClInclude>
     <ClInclude Include="MasterRenderer.h">
       <Filter>Pliki nagłówkowe\Renderer</Filter>
     </ClInclude>
@@ -120,12 +117,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="errors.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
-    <ClCompile Include="game.cpp">
       <Filter>Pliki źródłowe</Filter>
     </ClCompile>
     <ClCompile Include="MasterRenderer.cpp">
