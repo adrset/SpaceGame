@@ -83,17 +83,17 @@ namespace engineX {
 
 
 	void MasterRenderer::proccessEntity(entity ent) {
-	/*	texturedModel entityModel = ent.getModel();
-		 std::map<char,int>::iterator it;
-		it = mymap.find('b');
-		if (it != mymap.end())
-		if (fellowEntites.size() !=0) {                                         WRONG
-			fellowEntites.push_back(ent);
+
+		texturedModel entityModel = ent.getModel();
+		std::map<texturedModel,std::list<entity>>::iterator it;
+		it = m_entities.find(entityModel);
+		if (it != m_entities.end()) {
+			m_entities.at(entityModel).push_back(ent);
 		}else {
 			std::list<entity> newFellowEntites;
 			newFellowEntites.push_back(ent);
 			m_entities.insert(std::make_pair(entityModel, newFellowEntites));
-		}*/ 
+		}
 	}
 
 	void MasterRenderer::enableCulling() {

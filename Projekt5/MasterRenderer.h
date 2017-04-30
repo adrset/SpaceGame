@@ -7,6 +7,8 @@
 #include "entityRenderer.h"
 #include "camera3d.h"
 namespace engineX {
+	
+
 	class MasterRenderer
 	{
 

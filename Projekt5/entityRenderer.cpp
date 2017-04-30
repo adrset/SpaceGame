@@ -4,6 +4,7 @@
 
 namespace engineX {
 
+
 	entityRenderer::entityRenderer(staticShader& shader, glm::mat4 projectionMatrix)
 	{
 		this->m_shader = shader;
