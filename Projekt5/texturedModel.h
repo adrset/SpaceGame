@@ -14,7 +14,7 @@ namespace engineX {
 		texturedModel() {};
 		texturedModel(rawModel model, modelTexture texture);
 		~texturedModel();
-		modelTexture getModelTexture() {return m_texture;	}
+		modelTexture getModelTexture() const {return m_texture;	}
 
 	private: 
 		modelTexture m_texture;
